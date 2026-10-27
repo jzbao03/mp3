@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: jzbao03-mp3
+    runtime: node
+    plan: free
+    buildCommand: npm ci --omit=dev
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_VERSION
+        value: "24"
+      - key: NODE_ENV
+        value: production
+      - key: MONGODB_URI
+        sync: false
